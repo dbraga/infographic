@@ -1,0 +1,27 @@
+{
+    "name": "infographic",
+    "preferGlobal": true,
+    "version": "0.1.0",
+    "author": "Damiano Braga <dbraga@trulia.com",
+    "description": "Infographic project",
+    "contributors": [
+        {
+            "name": "Eden Klein",
+            "email": "eklein@trulia.com"
+        }
+    ],
+    "reposiory": {
+        "type": "git",
+        "url": ""
+    },
+    "dependencies": {
+        "node-git": ">=0.0.1",
+        "node-watch": ">=0.0.1",
+        "express": ">=3.0.6",
+        "socket.io": ">=0.9.13",
+        "socket.io-client": "0.9.11",
+        "d3":"3.0.3",
+        "node_redis":"0.8.2"
+    },
+    "license": "MIT"
+}

@@ -1,0 +1,4211 @@
+#simple-slider{
+  width: 200px;
+  float: right;
+}
+
+#map { 
+	height: 500px; 
+	width: 1400px;
+}
+
+
+.legend {
+    line-height: 30px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+header div{
+	
+	margin-bottom:2px;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px ;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/** 
+ * We are using most of Normalize CSS with these modifications:
+ * 
+ * Moved some of the typography styling to _typography.scss, unless it's something we think that should be set as default
+ * Removed list default margin, padding and list style
+ * 
+ */
+/* normalize.css v1.0.2 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/*
+ * Corrects `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/*
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/*
+ * Addresses styling for `hidden` attribute not present in IE 7/8/9, Firefox 3,
+ * and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Corrects text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/*
+ * Addresses margins handled incorrectly in IE 6/7.
+ */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/*
+ * Addresses `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Addresses style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/*
+ * Addresses styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/*
+ * Addresses CSS quotes not supported in IE 6/7.
+ */
+q {
+  quotes: none;
+}
+
+/*
+ * Addresses `quotes` property not supported in Safari 4.
+ */
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+/*
+ * Addresses inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/*
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+dl,
+dt,
+dd,
+menu,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Removes border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improves image quality when scaled in IE 7.
+ */
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/*
+ * Corrects overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE 6/7.
+ */
+form {
+  margin: 0;
+}
+
+/*
+ * Define consistent border, margin, and padding.
+ */
+/* 
+ * [OOCSS] - removed border bottom styling. Set margin and padding to 0.
+ */
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE 6/7/8/9.
+ * 2. Corrects text not wrapping in Firefox 3.
+ * 3. Corrects alignment displayed oddly in IE 6/7.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  white-space: normal;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */
+}
+
+/*
+ * 1. Corrects font size not being inherited in all browsers.
+ * 2. Addresses margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improves appearance and consistency in all browsers.
+ */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */
+}
+
+/*
+ * Addresses Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Removes inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+  *overflow: visible;
+  /* 4 */
+}
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+/*
+ * 1. Addresses box sizing set to content-box in IE 8/9.
+ * 2. Removes excess padding in IE 8/9.
+ * 3. Removes excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */
+}
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+ * Removes inner padding and border in Firefox 3+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/*
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  font-weight: normal;
+}
+
+/* Direct Colors */
+/* contours */
+/*
+ATTENTION!!!! USE THESE COLOR VARIABLES IN YOUR CODE (not the direct color names)
+*/
+/* Typography Colors */
+/* Typography */
+/**
+  * Background Colors
+  *
+  * To add additional backgrounds use the following syntax:
+  * @include ooBackground(<className>, <color>)
+  *
+  * @className  The class name that you will use for that background
+  * @color      The color to be used for that background
+  *
+  */
+/* Tab colors */
+/* Badge Colors */
+/* Alert Colors */
+/* Frame Colors */
+/* Overlay Colors */
+/* Divider */
+/* List */
+/* Close Icon */
+/* Tooltip */
+/* Toggle colors */
+/* typography */
+/* links */
+/* Misc Colors */
+/* button colors */
+/* whitepace */
+/* layout */
+/* dropdown select*/
+/* dropdown */
+/* menu */
+/* Search bar */
+/* form */
+/* Rating */
+/* template */
+/* carousel */
+/* addOn defaults */
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+/* 
+ * clearfix     used project wide to clear floats and create a new formatting context
+ * usage      @include clearfix-me(<empty|overflow|facebook|micro|stubborn>)
+ * $clearfix-method sets default method
+ */
+.ad300x250, .ad300x250flex, .ad300x100, .ad160x600, .ad728x90, .ad976x30, .main {
+  overflow: hidden;
+  *overflow: visible;
+  zoom: 1;
+}
+
+.line .lastCol, .media > .mediaBody {
+  display: table-cell;
+  vertical-align: top;
+  width: 10000px !important;
+  *display: block;
+  *zoom: 1;
+  *width: auto !important;
+}
+
+.line, .media, .box, .box .boxHead,
+.box .boxFoot, .form .field, .menuList, .menuMain, .searchBar, .content > section, .container {
+  zoom: 1;
+}
+.line:before, .media:before, .box:before, .box .boxHead:before,
+.box .boxFoot:before, .form .field:before, .menuList:before, .menuMain:before, .searchBar:before, .content > section:before, .container:before, .line:after, .media:after, .box:after, .box .boxHead:after,
+.box .boxFoot:after, .form .field:after, .menuList:after, .menuMain:after, .searchBar:after, .content > section:after, .container:after {
+  content: " ";
+  display: table;
+}
+.line:after, .media:after, .box:after, .box .boxHead:after,
+.box .boxFoot:after, .form .field:after, .menuList:after, .menuMain:after, .searchBar:after, .content > section:after, .container:after {
+  clear: both;
+}
+
+/* ==========================================================================
+   Hide
+   ========================================================================== */
+/**
+* @desc         Various techniques for hiding elements. Adapted from HTML5 Boilerplate.
+* @name         hide
+* @author       Fiona
+* @tested       IE6-9, Firefox, Chrome, Safari
+* @requires     N/A
+*/
+/* Hide text off screen */
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+/* Extends the .hideVisually class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+/* ==========================================================================
+   Arrow
+   For more explanation, see: http://jonrohan.me/guide/css/creating-triangles-in-css/
+   ========================================================================== */
+/**
+* @desc         Create simple directional arrows in pure CSS.
+* @name         arrow
+* @author       David West
+* @tested       Chrome
+* @requires     N/A
+*/
+/**
+ * Convert px to em
+ *
+ * @param $px - the value in pixel you want to convert
+ * @param $context - the context in pixel e.g. you want to set margin on your text,
+ * and font size on your text is equivalent to 14px, then your context is 14px.
+ *
+ * e.g. margin: pxToEm(20px, 14px);
+ * 
+ */
+/** 
+ * Make elements into inline-block with IE7 fix. Use it only when you need to make a
+ * block level element inline-block. Elements that are inline by default won't need the 
+ * IE7 fix.
+ * 
+ * Usage            @extend %nlineBlockFix;
+ * 
+ */
+.listInline > li, .listInlineDivider > li, .form .fieldGroupInline > li, .rating label,
+.ratingGroup,
+.ratingValue {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+.hideVisually, .ratingGroup li span, .ratingGroup input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.hideVisually.focusable:active, .ratingGroup li span.focusable:active, .ratingGroup input.focusable:active,
+.hideVisually.focusable:focus,
+.ratingGroup li span.focusable:focus,
+.ratingGroup input.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.hideText {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
+  /* IE 6/7 fallback */
+}
+
+.hideText:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+}
+
+.hideFully {
+  display: none !important;
+  visibility: hidden;
+}
+
+/**
+* @desc         All the ways to align some text
+* @name         textAlign
+* @author       JD
+* @tested       Chrome
+* @requires     N/A
+*/
+/* horizontal alignment */
+/* vertical alignment */
+.txtC, table .txtC, table tr .txtC {
+  text-align: center;
+}
+
+.txtL, table .txtL, table tr .txtL {
+  text-align: left;
+}
+
+.txtR, table .txtR, table tr .txtR {
+  text-align: right;
+}
+
+.txtT, table .txtT, table tr .txtT {
+  vertical-align: top;
+}
+
+.txtB, table .txtB, table tr .txtB {
+  vertical-align: bottom;
+}
+
+.txtM, table .txtM, table tr .txtM {
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   Whitespace
+   ========================================================================== */
+/**
+* @desc         Create spacing classes and default spacing.
+* @name         Whitespace
+* @author       Fiona
+* @tested       Safari, Chrome, Firefox, IE7-9
+* @requires     _variables.scss
+*/
+/* ==========================================================================
+   Default spacing
+   ========================================================================== */
+p, .headingDoubleSub, .media, .ad300x250, .ad300x250flex, .ad300x100, .ad160x600, .ad728x90, .ad976x30, ol,
+ul, .form, .form .field, .table, .alert, .carousel {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.box {
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
+
+table h1, table h2, table h3, table h4, table h5, table h6, table p, table ul, table ol, table dl, table blockquote, table .media, table pre {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* *
+ * debug default spacing 
+ * set $debug-spacing to true to visualize spacing and positioning
+ */
+/* ==========================================================================
+   Spacing helpers
+   ========================================================================== */
+/**
+ * Spacing helpers 
+ * Should be used to modify the default spacing between objects (not between nodes of the same object)
+ * Please use judiciously. You want to be using defaults most of the time, these are exceptions! 
+ * <type><location><size>
+ *
+ * p,m 				padding,margin
+ * a,t,r,b,l,h,v	all,top,right,bottom,left,horizontal,vertical
+ * s,m,l,n 			small(5px),medium(10px),large(21px),none(0px)
+ */
+/* build spacing exceptions */
+.pan {
+  padding: 0 !important;
+}
+
+.man {
+  margin: 0 !important;
+}
+
+.pas {
+  padding: 5px !important;
+}
+
+.mas {
+  margin: 5px !important;
+}
+
+.pam {
+  padding: 10px !important;
+}
+
+.mam {
+  margin: 10px !important;
+}
+
+.pal {
+  padding: 21px !important;
+}
+
+.mal {
+  margin: 21px !important;
+}
+
+.pvn {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.mvn {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.pvs {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.mvs {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.pvm {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.mvm {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.pvl {
+  padding-top: 21px !important;
+  padding-bottom: 21px !important;
+}
+
+.mvl {
+  margin-top: 21px !important;
+  margin-bottom: 21px !important;
+}
+
+.phn {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.mhn {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.phs {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.mhs {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+.phm {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.mhm {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.phl {
+  padding-left: 21px !important;
+  padding-right: 21px !important;
+}
+
+.mhl {
+  margin-left: 21px !important;
+  margin-right: 21px !important;
+}
+
+.ptn {
+  padding-top: 0 !important;
+}
+
+.mtn {
+  margin-top: 0 !important;
+}
+
+.pts {
+  padding-top: 5px !important;
+}
+
+.mts {
+  margin-top: 5px !important;
+}
+
+.ptm {
+  padding-top: 10px !important;
+}
+
+.mtm {
+  margin-top: 10px !important;
+}
+
+.ptl {
+  padding-top: 21px !important;
+}
+
+.mtl {
+  margin-top: 21px !important;
+}
+
+.prn {
+  padding-right: 0 !important;
+}
+
+.mrn {
+  margin-right: 0 !important;
+}
+
+.prs {
+  padding-right: 5px !important;
+}
+
+.mrs {
+  margin-right: 5px !important;
+}
+
+.prm {
+  padding-right: 10px !important;
+}
+
+.mrm {
+  margin-right: 10px !important;
+}
+
+.prl {
+  padding-right: 21px !important;
+}
+
+.mrl {
+  margin-right: 21px !important;
+}
+
+.pbn {
+  padding-bottom: 0 !important;
+}
+
+.mbn {
+  margin-bottom: 0 !important;
+}
+
+.pbs {
+  padding-bottom: 5px !important;
+}
+
+.mbs {
+  margin-bottom: 5px !important;
+}
+
+.pbm {
+  padding-bottom: 10px !important;
+}
+
+.mbm {
+  margin-bottom: 10px !important;
+}
+
+.pbl {
+  padding-bottom: 21px !important;
+}
+
+.mbl {
+  margin-bottom: 21px !important;
+}
+
+.pln {
+  padding-left: 0 !important;
+}
+
+.mln {
+  margin-left: 0 !important;
+}
+
+.pls {
+  padding-left: 5px !important;
+}
+
+.mls {
+  margin-left: 5px !important;
+}
+
+.plm {
+  padding-left: 10px !important;
+}
+
+.mlm {
+  margin-left: 10px !important;
+}
+
+.pll {
+  padding-left: 21px !important;
+}
+
+.mll {
+  margin-left: 21px !important;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/*
+
+---
+title: Typography
+type: component
+category: Base CSS
+author: Fiona
+tested: 
+  chrome: pass
+  firefox: pass
+  ie9: pass
+  ie8: pass
+  ie7: pass
+---
+
+## Headings
+All html headings `<h1>` through `<h6>` are available. You can also apply classes `.h1` through `.h7` to any typography element to override the default size
+
+```html_example
+<h1>h1.Heading</h1>
+<h2>h2.Heading</h2>
+<h3>h3.Heading</h3>
+<h4>h4.Heading</h4>
+<h5>h5.Heading</h5>
+<h6>h6.Heading</h6>
+<h6 class="h3">h6 with .h3</h6>
+```
+
+## Double Headings
+Trulia does a lot of...interesting...stuff with header elements for SEO reasons. These classes can help you acheive some desired layouts while preserving SEO.
+### Double heading two lines
+```html_example
+<div class="headingDouble">
+  <h1>
+    <span class="headingDoubleSuper">116 New Montgomery St</span>
+    <span class="headingDoubleSub">San Francisco, CA 94110</span>
+  </h1>
+  <p>, Nob Hill</p>
+</div>
+```
+
+### Double heading inline
+```html_example
+<div class="headingDouble">
+  <h1 class="headingDoubleInline">
+    <span>Los Angles Real Estate &amp; Homes For Sale</span>
+  </h1>
+  <span class="headingDoubleInline typeDeemphasize h1 mll">10,378 Results</span>
+</div>
+```
+
+## Body copy
+Trulia OOCSS uses a default `font-size` of **14px** and a default `line-height` of **21px** (yes, we're copying Bootstrap)
+
+```html_example
+<p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. </p>
+```
+
+## Emphasis & Utility classes
+These classes give you color, emphasis, type truncation and more.
+
+```html_example
+<p class="typeEmphasize">typeEmphasize</p>
+<p class="typeDeemphasize">typeDeemphasize</p>
+<p class="typeWeightNormal">typeWeightNormal</p>
+<p class="h7">Small text (h7)</p>
+<p class="typeWarning">typeWarning</p>
+<p class="typeLowlight">typeLowlight</p>
+<p class="typeHighlight">typeHighlight</p>
+<p class="typeCaps">typeCaps</p>
+<p class="typeTruncate" style="width:150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor quam nec nibh adipiscing dictum. Sed auctor tristique ligula</p>
+<p class="typeReversed1 backgroundHighlight">Type Reversed 1</p>
+<p class="typeReversed2 backgroundHighlight">Type Reversed 2</p>
+<p class="typeContrast typeReversed1 backgroundHighlight">Type Contrast (use only for white text on dark background)</p>
+```
+*/
+/* ==========================================================================
+   Helper Functions & Mixins
+   ========================================================================== */
+/* Font size calculations
+   ========================================================================== */
+/* ==========================================================================
+   Component Mixin
+   ========================================================================== */
+/* debug */
+/**
+  * @desc         Various colors that cab be applied to text
+  * @name         Type colors
+  * @author       Joe
+  * @tested       chrome, safari, firefox, IE7-9
+  * @requires     _variables.scss
+  */
+/**
+  * @desc         Various colors that cab be applied to text
+  * @name         Type colors
+  * @author       Joe
+  * @tested       chrome, safari, firefox, IE7-9
+  * @requires     _variables.scss
+  */
+/**
+  * @desc         Various weights that cab be applied to text
+  * @name         Type weights
+  * @author       Nicole
+  * @tested       chrome, safari, firefox, IE7-9
+  * 
+  */
+/**
+  * @desc         Various colors that cab be applied to text
+  * @name         Type transforms
+  * @author       JD
+  * @tested       chrome, safari, firefox, IE7-9
+  * @requires     _variables.scss
+  */
+/* OpenSans font definitions */
+/* Light | 300 */
+@font-face {
+  font-family: "OpenSans";
+  src: url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Light-webfont.eot");
+  src: url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Light-webfont.eot?#iefix") format("embedded-opentype"), url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Light-webfont.woff") format("woff"), url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Light-webfont.ttf") format("truetype"), url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Light-webfont.svg#OpenSansLight") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Regular | 400 */
+@font-face {
+  font-family: "OpenSans";
+  src: url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Regular-webfont.eot");
+  src: url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Regular-webfont.woff") format("woff"), url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Regular-webfont.ttf") format("truetype"), url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Bold | 600 */
+@font-face {
+  font-family: "OpenSans";
+  src: url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Bold-webfont.eot");
+  src: url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Bold-webfont.woff") format("woff"), url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Bold-webfont.ttf") format("truetype"), url("http://static.trulia-cdn.com/images/fonts/OpenSans/OpenSans-Bold-webfont.svg#OpenSansBold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Base type
+   ========================================================================== */
+body {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.5em;
+  color: #222222;
+}
+
+body,
+input,
+select,
+textarea,
+button {
+  font-family: OpenSans, sans-serif;
+}
+
+/* Headings and paragraph
+   ========================================================================== */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-weight: 300;
+  font-style: normal;
+}
+
+h1, .h1 {
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 1.3;
+  margin: 5px 0 5px 0;
+  font-weight: bold;
+}
+
+h2, .h2 {
+  font-size: 28px;
+  font-size: 1.75rem;
+  line-height: 1.4;
+  margin: 20px 0;
+}
+
+h3, .h3 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 17px 0;
+}
+
+h4, .h4 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 13px 0;
+}
+
+h5, .h5 {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 11px 0;
+  font-weight: bold;
+}
+
+h6, .h6 {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.h7 {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+.headingDoubleSuper {
+  display: block;
+  clear: both;
+  min-width: 10px;
+}
+
+.headingDoubleSub {
+  font-size: 14px;
+  font-size: 0.875rem;
+  display: block;
+  float: left;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+.headingDoubleInline {
+  display: inline;
+}
+
+/* Code
+   ========================================================================== */
+pre,
+code {
+  font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+}
+
+.typeContrast {
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.typeWarning {
+  color: #cc2114;
+}
+
+.typeHighlight {
+  color: #5eab1f;
+}
+
+.typeLowlight {
+  color: #999999;
+}
+
+.typeReversed1 {
+  color: white;
+}
+
+.typeReversed2 {
+  color: #eff6e9;
+}
+
+.typeDeemphasize {
+  font-weight: 300 !important;
+}
+
+.typeWeightNormal {
+  font-weight: normal !important;
+}
+
+.typeEmphasize {
+  font-weight: bold !important;
+}
+
+.typeCaps {
+  text-transform: uppercase;
+}
+
+.typeTruncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+/**
+  * @desc         Base grids mixin that provides layout mechanism
+  * @name         grid
+  * @author       stubbornella
+  * @tested       chrome
+  * @requires     ---
+  */
+/* ie 7 and earlier need percentage based gutters because they dont do border-box */
+.cols1 {
+  width: 4.16667% !important;
+  *width: 2.30496% !important;
+}
+
+.cols2 {
+  width: 8.33333% !important;
+  *width: 6.47163% !important;
+}
+
+.cols3 {
+  width: 12.5% !important;
+  *width: 10.6383% !important;
+}
+
+.cols4 {
+  width: 16.66667% !important;
+  *width: 14.80496% !important;
+}
+
+.cols5 {
+  width: 20.83333% !important;
+  *width: 18.97163% !important;
+}
+
+.cols6 {
+  width: 25% !important;
+  *width: 23.1383% !important;
+}
+
+.cols7 {
+  width: 29.16667% !important;
+  *width: 27.30496% !important;
+}
+
+.cols8 {
+  width: 33.33333% !important;
+  *width: 31.47163% !important;
+}
+
+.cols9 {
+  width: 37.5% !important;
+  *width: 35.6383% !important;
+}
+
+.cols10 {
+  width: 41.66667% !important;
+  *width: 39.80496% !important;
+}
+
+.cols11 {
+  width: 45.83333% !important;
+  *width: 43.97163% !important;
+}
+
+.cols12 {
+  width: 50% !important;
+  *width: 48.1383% !important;
+}
+
+.cols13 {
+  width: 54.16667% !important;
+  *width: 52.30496% !important;
+}
+
+.cols14 {
+  width: 58.33333% !important;
+  *width: 56.47163% !important;
+}
+
+.cols15 {
+  width: 62.5% !important;
+  *width: 60.6383% !important;
+}
+
+.cols16 {
+  width: 66.66667% !important;
+  *width: 64.80496% !important;
+}
+
+.cols17 {
+  width: 70.83333% !important;
+  *width: 68.97163% !important;
+}
+
+.cols18 {
+  width: 75% !important;
+  *width: 73.1383% !important;
+}
+
+.cols19 {
+  width: 79.16667% !important;
+  *width: 77.30496% !important;
+}
+
+.cols20 {
+  width: 83.33333% !important;
+  *width: 81.47163% !important;
+}
+
+.cols21 {
+  width: 87.5% !important;
+  *width: 85.6383% !important;
+}
+
+.cols22 {
+  width: 91.66667% !important;
+  *width: 89.80496% !important;
+}
+
+.cols23 {
+  width: 95.83333% !important;
+  *width: 93.97163% !important;
+}
+
+.cols24 {
+  width: 100% !important;
+  *width: 98.1383% !important;
+}
+
+.line {
+  margin-left: -21px;
+}
+.line .col {
+  /* col must take place by default even if it's empty */
+  min-height: 1px;
+  float: left;
+  zoom: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 21px;
+}
+.line .colExt {
+  float: right;
+  zoom: 1;
+  padding: 0 0 0 21px;
+}
+.line .lastCol {
+  float: none;
+  /* IE 7 - new formatting context */
+  *display: block;
+  *width: auto !important;
+  *zoom: 1;
+}
+.line .col:last-child {
+  display: table-cell;
+  float: none;
+  vertical-align: top;
+  width: 10000px !important;
+}
+
+/* ==========================================================================
+   Media
+   ========================================================================== */
+.media > .mediaImg {
+  float: left;
+  margin-right: 10px;
+}
+.media > .mediaImg > img {
+  display: block;
+}
+.media > .mediaImgExt {
+  float: right;
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.mediaInline {
+  vertical-align: middle;
+}
+.mediaInline > img, .mediaInline > span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   Link
+   ========================================================================== */
+/**
+* @desc Various styles for links.
+* @name Link
+* @tested Safari 6, FireFox 15.0.1, Chrome 23, IE 7-9
+* @requires _variables.scss
+*/
+/* ==========================================================================
+   Component Mixin
+   ========================================================================== */
+/* ==========================================================================
+   Helpers
+   ========================================================================== */
+/*
+   Common link style placeholder
+   ========================================================================== */
+a, a:hover, a:focus, .linkLowlight {
+  text-decoration: none;
+}
+
+/*
+   Default link
+   ========================================================================== */
+a {
+  color: #1885f0;
+}
+a:hover, a:focus {
+  color: #5eab1f;
+}
+
+/*
+   Lowlight link
+   ========================================================================== */
+.linkLowlight {
+  color: #999999;
+}
+.linkLowlight:hover, .linkLowlight:focus {
+  color: #5eab1f;
+}
+
+/*
+   Directional links
+   ========================================================================== */
+.linkForward:after {
+  margin-left: 0.35714em;
+  content: "\00BB";
+}
+
+.linkBack:before {
+  margin-right: 0.35714em;
+  content: "\00AB";
+}
+
+/* ==========================================================================
+  Compass Helpers
+  ========================================================================== */
+/* ==========================================================================
+   Ad
+   ========================================================================== */
+.ad300x250, .ad300x250flex, .ad300x100, .ad160x600, .ad728x90, .ad976x30 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ad300x250 {
+  width: 300px;
+  height: 250px;
+}
+
+.ad300x250flex {
+  width: 300px;
+  min-height: 250px;
+}
+
+.ad300x100 {
+  width: 300px;
+  height: 100px;
+}
+
+.ad160x600 {
+  width: 160px;
+  height: 600px;
+}
+
+.ad728x90 {
+  width: 728px;
+  height: 90px;
+}
+
+.ad976x30 {
+  width: 976px;
+  height: 30px;
+}
+
+/* ==========================================================================
+   Background
+   ========================================================================== */
+/**
+  * @desc         Base background mixin that pairs names with colors
+  * @name         background
+  * @author       stubbornella
+  * @tested       chrome
+  * @requires     ---
+  */
+.backgroundBasic {
+  background-color: white;
+}
+
+.backgroundHighlight {
+  background-color: #5eab1f;
+}
+
+.backgroundLowlight {
+  background-color: #f9f9f9;
+}
+
+.backgroundInverse {
+  background-color: #222222;
+}
+
+/* ==========================================================================
+   Box
+   ========================================================================== */
+/**
+  * @desc         Base box mixin for grouping content
+  * @name         Trulia Box Mixin
+  * @author       aflanagan
+  * @tested       chrome, firefox
+  * @requires     ---
+  */
+.box {
+  position: relative;
+}
+.box .boxHead,
+.box .boxFoot {
+  padding: 0;
+  margin: 0 21px;
+}
+.box .boxBody {
+  padding: 0 21px 1px;
+}
+
+.boxHighlight {
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.17);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.17);
+}
+
+.boxBasic {
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   Box Head
+   ========================================================================== */
+.boxHeadBasic {
+  border-bottom: solid 1px #e9e9e9;
+}
+
+/* ==========================================================================
+   Box Foot
+   ========================================================================== */
+.boxFootBasic {
+  border-top: solid 1px #e9e9e9;
+}
+
+/* ==========================================================================
+   Box Action
+   ========================================================================== */
+/**
+* @desc         Close icon for modals/popups
+* @name         Close icon
+* @author       aflanagan
+* @tested       chrome, firefox
+* @requires     boxClose.js
+*/
+.boxClose {
+  border: none;
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  text-align: center;
+  color: #888888;
+  background-color: transparent;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+.boxClose:hover,
+.boxClose:focus {
+  color: #222222;
+}
+
+/* ==========================================================================
+  Lists
+  ========================================================================== */
+/*
+---
+title: Lists
+type: component
+category: Base CSS
+author: 
+tested: 
+  chrome: pass
+  firefox: pass
+  ie9: pass
+  ie8: pass
+  ie7: pass
+---
+
+By default, all lists are plain with no bullets or numbers and have
+generous spacing. We have several classes for lists that can be mixed
+and matched as desired (though there are some silly combinations such as
+`listBulleted listUnbulleted` that you probably want to avoid).
+
+Lists can be safely nested as well:
+
+```html_example
+<ul class="listInline">
+  <li>
+    <ul class="listBulleted">
+      <li>Price: $1,350,000</li>
+      <li>4 Bedrooms</li>
+      <li>Zip:
+        <a href="">94109</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <ul class="listBulleted">
+      <li>Status: For Sale</li>
+      <li>2 full, 1 partial bathrooms</li>
+      <li>Neighborhood:
+        <a href="">Nob Hill</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <ul class="listBulleted">
+      <li>MLS/Source ID: 404350</li>
+      <li>Condo</li>
+    </ul>
+  </li>
+</ul>
+````
+
+*/
+ol,
+ul {
+  list-style-type: none;
+}
+ol > li,
+ul > li {
+  margin: .2em 0;
+}
+
+/*
+---
+type: skin
+title: Ordered Lists
+---
+
+```html_example
+<ol class="listOrdered">
+  <li>First list item</li>
+  <li>Second list item</li>
+  <li>Third list item</li>
+</ol>
+```
+
+*/
+.listOrdered li {
+  list-style-type: decimal;
+  margin-left: 1.5em;
+}
+
+/*
+---
+type: skin
+title: Bulleted Lists
+---
+
+```html_example
+<ul class="listBulleted">
+  <li>First list item</li>
+  <li>Second list item</li>
+  <li>Third list item</li>
+</ul>
+```
+
+*/
+.listBulleted > li {
+  list-style-type: disc;
+  margin-left: 1.3em;
+}
+
+/*
+---
+type: skin
+title: Borders on Lists
+---
+
+```html_example
+<ul class="listBordered">
+  <li>First list item</li>
+  <li>Second list item</li>
+  <li>Third list item</li>
+</ul>
+```
+
+*/
+.listBordered > li, .listBorderedHover > li {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+.listBordered > li:first-child, .listBorderedHover > li:first-child {
+  border-top: 1px solid transparent;
+}
+
+.listBorderedHover > li {
+  margin: 0;
+}
+.listBorderedHover > li:hover {
+  background-color: #f6f6f6;
+}
+
+/*
+---
+type: skin
+title: Inline Lists
+---
+
+```html_example
+<ul class="listInline">
+  <li>First list item</li>
+  <li>Second list item</li>
+  <li>Third list item</li>
+</ul>
+```
+
+*/
+.listInline > li {
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+/*
+---
+type: skin
+title: Navigation lists (vertical)
+---
+
+```html_example
+<ul class="listNav">
+  <li>First list item</li>
+  <li>Second list item</li>
+  <li>Third list item
+    <ul class="subnav">
+      <li>Subnav item one</li>
+      <li>Subnav item two</li>
+    </ul>
+  </li>
+</ul>
+```
+*/
+.listNav > li {
+  padding: .3em 0;
+}
+
+.subnav {
+  margin: 0 0 0 1em;
+}
+
+/*
+---
+type: skin
+title: Inline Lists with dividers
+---
+
+```html_example
+<ul class="listInlineDivider">
+  <li>First list item</li>
+  <li>Second list item</li>
+  <li>Third list item</li>
+</ul>
+```
+
+*/
+.listInlineDivider > li {
+  border-left: solid 2px #e9e9e9;
+  padding: 0 10px;
+}
+.listInlineDivider > li:first-child {
+  border: none;
+  padding-left: 0;
+}
+
+/*
+---
+type: skin
+title: List Whitespacing
+---
+
+Lists have a number of helper classes to control the spacing around the
+list items. These classes are all three character classes that look
+like: `lvn` or `lhs`. Each character in the spacing class corresponds to
+`<type><location><size>`
+
+Type         |            | Description
+--------     | ---------- | -----------
+l            | list       | Specifies spacing for li items (as opposed to padding or margin, `pan` or `mvn`)
+**Location** |            | 
+h            | horizontal | Adds spacing to the left and right of the li
+v            | vertical   | Adds spacing to the top and bottom of the li
+**Size**     |            | 
+l            | large      | Adds a large amount of spacing (21px)
+m            | medium     | Adds a medium amount of spacing (10px)
+s            | small      | Adds a small amount of spacing (5px)
+n            | none       | Sets the spacing to 0
+
+
+```html_example
+<ul class="listBulleted lvs">
+  <li>Status: For Sale</li>
+  <li>2 full, 1 partial bathrooms</li>
+  <li>Neighborhood:
+    <a href="">Nob Hill</a>
+  </li>
+</ul>
+```
+
+```html_example
+<ul class="listBulleted lvm">
+  <li>Status: For Sale</li>
+  <li>2 full, 1 partial bathrooms</li>
+  <li>Neighborhood:
+    <a href="">Nob Hill</a>
+  </li>
+</ul>
+```
+*/
+/* build list spacing exceptions */
+.lvn > li {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.lvs > li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.lvm > li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.lvl > li {
+  padding-top: 21px;
+  padding-bottom: 21px;
+}
+
+.lhn > li {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.lhs > li {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.lhm > li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.lhl > li {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+
+/*
+---
+type: skin
+title: Multi-column Lists
+---
+
+`list2cols` and `list3cols` can be used to make multi-column lists, they
+may be mixed in with any other list skin class. Currently this component
+only works in **Firefox 18+, Chrome 24+, Safari 5.1+, and IE10+**. For a
+full list of browsers that support multi column check [Can I
+Use](http://caniuse.com/#feat=multicolumn)
+
+```html_example
+<ul class="listBulleted list2cols">
+  <li>Status: For Sale</li>
+  <li>2 full, 1 partial bathrooms</li>
+  <li>Neighborhood:
+    <a href="">Nob Hill</a>
+  </li>
+  <li>Status: For Sale</li>
+  <li>2 full, 1 partial bathrooms</li>
+  <li>Neighborhood:
+    <a href="">Nob Hill</a>
+  </li>
+</ul>
+```
+
+*/
+.list2cols {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  -ms-column-count: 2;
+  -o-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 2%;
+  -moz-column-gap: 2%;
+  -ms-column-gap: 2%;
+  -o-column-gap: 2%;
+  column-gap: 2%;
+  -webkit-column-width: "49%";
+  -moz-column-width: "49%";
+  -ms-column-width: "49%";
+  -o-column-width: "49%";
+  column-width: "49%";
+}
+
+.list3cols {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  -ms-column-count: 3;
+  -o-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 2%;
+  -moz-column-gap: 2%;
+  -ms-column-gap: 2%;
+  -o-column-gap: 2%;
+  column-gap: 2%;
+  -webkit-column-width: "32%";
+  -moz-column-width: "32%";
+  -ms-column-width: "32%";
+  -o-column-width: "32%";
+  column-width: "32%";
+}
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+/**
+* @desc         Modal window component
+* @name         Modal
+* @author       alexi
+* @tested
+* @requires     _variables.scss
+*/
+/*
+ * Make it higher than sky (our topnav has z-index:970)
+ * TODO: Fix it when we refactor topnav
+ */
+.beingModal {
+  z-index: 1001 !important;
+}
+
+/* modal cover should as standard as possible */
+.modalCover {
+  position: fixed;
+  display: block;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: auto;
+  height: auto;
+  /* this should cover everything, otherwise other party should be refactored */
+  z-index: 1000;
+}
+
+/* being real modal and prevent blocked content scrolling */
+body.underModal {
+  overflow: hidden !important;
+}
+
+/* dark skin */
+.modalCover_dark {
+  background-color: #000000;
+  opacity: 0.5;
+}
+
+html.x-msie-8 .modalCover_dark,
+html.x-msie-7 .modalCover_dark {
+  filter: alpha(opacity=50);
+}
+
+/* light skin skin */
+.modalCover_light {
+  background-color: #ffffff;
+  opacity: 0.5;
+}
+
+html.x-msie-8 .modalCover_light,
+html.x-msie-7 .modalCover_light {
+  filter: alpha(opacity=50);
+}
+
+/* include moved into comboInput.scss
+to make it available separate from the library */
+/* ==========================================================================
+   ModalBox
+   ========================================================================== */
+/**
+* @desc         ModalBox base class
+* @name         ModalBox_Component
+* @author       David West
+* @tested       Chrome
+* @requires     _variables.scss, _box.scss
+*/
+.modalBoxContainer {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  display: none;
+  width: 614px;
+  margin: 6em auto auto -307px;
+  -webkit-transform: 0;
+  -moz-transform: 0;
+  -ms-transform: 0;
+  -o-transform: 0;
+  transform: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.modalBoxClickLink {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+.form .fieldItem, .form .fieldGroup, .form .fieldGroupInline {
+  display: table-cell;
+  width: 10000px;
+  *width: auto;
+  *display: block;
+  *zoom: 1;
+}
+
+/** label generic width : generate code like this :
+ .labelWidth90 label, label.labelWidth90 {
+  width: 90%;
+}
+ */
+::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+
+:-moz-placeholder {
+  color: #aaaaaa;
+}
+
+:-ms-input-placeholder {
+  color: #aaaaaa;
+}
+
+.placeholder {
+  color: #aaaaaa;
+}
+
+.form .select select,
+.form .text input,
+.form .text textarea, .form .addOn {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+}
+
+.form {
+  /**
+    Forms Structure
+  */
+  /**
+    Basic form elements
+  */
+  /* reset elements */
+  /* by default label is on top */
+  /** webkit fix */
+  /* Groups */
+}
+.form .col :first-child {
+  margin-top: 0;
+}
+.form .col :last-child {
+  margin-bottom: 0;
+}
+.form .fieldLabel {
+  margin-bottom: 2px;
+  min-height: 1px;
+  display: block;
+  cursor: pointer;
+  font-weight: bold;
+}
+.form label.labelLeft,
+.form .labelLeft .fieldLabel {
+  width: 30%;
+  float: left;
+  padding: 4px 13px 4px 0;
+  text-align: right;
+}
+.form .radio,
+.form .checkbox {
+  position: relative;
+  /** need android special class added by Javascript on <html> element because we need specific CSS for android devices */
+}
+.form .radio label,
+.form .checkbox label {
+  display: block;
+  width: auto;
+  padding-left: 1.4em;
+  *zoom: 1;
+  *padding-left: 0;
+  vertical-align: middle;
+}
+.form .radio input,
+.form .checkbox input {
+  margin-right: 5px;
+  padding: 0;
+  float: left;
+  position: relative;
+  top: 4px;
+  border: 0;
+  line-height: 1.5em;
+  vertical-align: middle;
+}
+.form .radio input[type="radio"],
+.form .checkbox input[type="radio"] {
+  top: 4px;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .form .radio input, .form .checkbox input {
+    top: 0.35em;
+  }
+  .form .radio input[type="radio"], .form .checkbox input[type="radio"] {
+    left: 1px;
+  }
+}
+.form .select select,
+.form .text input,
+.form .text textarea {
+  width: 100%;
+}
+.form .text textarea {
+  padding: 8px;
+}
+.form .fieldGroup {
+  margin: 0;
+}
+.form .fieldGroup > li {
+  margin: 5px 0;
+}
+.form .fieldGroup > li > label {
+  display: block;
+  margin-bottom: 2px;
+}
+.form .fieldGroup:before, .form .fieldGroup:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.form .fieldRange > li {
+  display: table-cell;
+  vertical-align: middle;
+}
+.form .fieldRange .rangeLabel {
+  padding: 0 10px;
+}
+.form .fieldGroupInline > li {
+  margin-left: 13px;
+  float: none;
+}
+.form .fieldGroupInline > li:first-child {
+  margin-left: 0;
+}
+.form .fieldGroupInline > li > label {
+  display: inline-block;
+  margin: 0;
+}
+.form .fieldGroupInline label,
+.form .fieldGroupInline .fieldItem {
+  vertical-align: middle;
+  float: none;
+  display: inline-block;
+  width: auto;
+}
+.form .fieldGroupInline .radio input, .form .fieldGroupInline .checkbox input {
+  top: auto;
+  float: none;
+  vertical-align: middle;
+}
+.form .fieldGroupInline .radio label, .form .fieldGroupInline .checkbox label {
+  padding-left: 0;
+}
+
+/*
+---
+title: Field Decorators
+type: component
+category: Base Component
+author: JD
+tested: 
+  chrome: pass
+  firefox: pass
+  ie9: pass
+  ie8: pass
+  ie7: pass
+---
+
+There are many cases where text needs to be around an input. You can use
+these decorators so that your text will align nicely next to the input
+and be clear that it is related to the input.
+
+There are two caveats when using these components. One, there must not
+be any white space or line break betweent the .addOn element and the
+input element. And two, the input must be sized so that there is room
+for the .addOn element (so use a colsN class).
+
+>Don't use frames to hold real content only pretend contents.
+
+```html_example
+<div class="form">
+  <div class="field">
+    <label for="how_much" class="fieldLabel">How much?</label>
+    <span class="fieldItem fieldAppend text">
+      <input id="how_much" aria-labelledby="zero_cents" class="cols12" type="text"><span id="zero_cents" class="addOn {{className}}">.00</span>
+    </span>
+  </div>
+  <div class="field">
+    <label for="how_much" class="fieldLabel">How much?</label>
+    <span class="fieldItem fieldPrepend text">
+      <span id="dollars" class="addOn addOnBasic">$</span><input aria-labelledby="dollars" id="how_much" class="cols12" type="text">
+    </span>
+  </div>
+</div>
+```
+
+*/
+.form .fieldPrepend .addOn {
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+.form .fieldPrepend .addOn + input {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+}
+.form .fieldAppend input {
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+.form .fieldAppend input + .addOn {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+}
+
+.addOnBasic {
+  background: none;
+  color: #222222;
+  text-shadow: none;
+}
+
+.addOnLowlight {
+  background: #d6d6d6;
+  color: #707070;
+  text-shadow: 0 1px 0 white;
+}
+
+.form .fieldAppend .addOnBtn, .form .fieldPrepend .addOnBtn {
+  background: #fcfcfc;
+  color: #222222;
+  text-shadow: 0 1px 0 white;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fcfcfc), color-stop(100%, #f6f6f6));
+  background: -webkit-linear-gradient(#fcfcfc, #f6f6f6);
+  background: -moz-linear-gradient(#fcfcfc, #f6f6f6);
+  background: -o-linear-gradient(#fcfcfc, #f6f6f6);
+  background: linear-gradient(#fcfcfc, #f6f6f6);
+  border-right: 1px solid #cccccc;
+}
+.form .fieldAppend input + .addOnBtn {
+  border-left: 1px solid #cccccc;
+}
+
+/* ==========================================================================
+   Toggle
+   ========================================================================== */
+.toggle {
+  position: relative;
+  cursor: pointer;
+}
+
+.toggleArrow .before, .toggleArrow:before {
+  content: "\25BA";
+  display: inline-block;
+  width: 1.3em;
+  font-size: .9em;
+  text-align: center;
+}
+
+.toggleArrowActive:before {
+  content: "\25BC";
+}
+
+/* IE7 */
+.toggleArrow:hover .before {
+  text-decoration: none;
+}
+
+.toggleArrow .active, .toggleActive .inactive {
+  display: none;
+}
+
+.toggleActive .active {
+  display: inline-block;
+}
+
+.toggleActive .inactive {
+  display: none;
+}
+
+/* ==========================================================================
+   Frame
+   ========================================================================== */
+/*
+---
+title: Frames
+type: component
+category: Base Component
+author: someone
+tested: 
+  chrome: pass
+  firefox: pass
+  ie9: pass
+  ie8: pass
+  ie7: pass
+---
+
+A frame is a simple border around some content, usually an image but
+other content can be used as well. The different skin classes generally
+change the intensity and padding size of the frame.
+
+#Design Notes
+Don't use frames to hold real content only pretend contents.
+
+
+*/
+/*
+---
+type: skin
+title: Small Frame
+class: frameSmall
+description: For images with a width of 180px and below
+---
+
+```html_example
+<div class="frameSmall">
+  <img alt="" src="http://placekitten.com/180/135">
+  <div class="polaroid" style='width:181px;'>
+    <p class="mvn">Here's a little text below the image</p>
+  </div>
+</div>
+```
+*/
+.frameThumb, .frameSmall, .frameStandard, .frameStacked {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  *border: 1px solid #aaaaaa;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.frameThumb img, .frameSmall img, .frameStandard img, .frameStacked img {
+  display: block;
+}
+.frameThumb .polaroid, .frameSmall .polaroid, .frameStandard .polaroid, .frameStacked .polaroid {
+  margin-top: 5px;
+}
+
+.frameThumb {
+  padding: 2px;
+}
+
+.frameSmall {
+  padding: 6px;
+}
+
+.frameStandard {
+  padding: 8px;
+}
+
+.frameStacked {
+  padding: 8px;
+  position: relative;
+  background-color: #fff;
+}
+
+.frameStacked:before, .frameStacked:after {
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -999;
+  content: "";
+  background-color: #f9f9f9;
+}
+
+.frameStacked:before {
+  left: 5px;
+  top: 0px;
+  -webkit-transform: rotate(1deg);
+  -moz-transform: rotate(1deg);
+  -ms-transform: rotate(1deg);
+  -o-transform: rotate(1deg);
+  transform: rotate(1deg);
+}
+
+.frameStacked:after {
+  right: 5px;
+  top: 0px;
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  -o-transform: rotate(-1deg);
+  transform: rotate(-1deg);
+}
+
+/* =======================================================================
+  Overlay
+  ========================================================================== */
+/**
+* @desc         All the ways to align some text
+* @name         textAlign
+* @author       JD
+* @tested       Chrome, Firefox, IE9, IE8, IE7
+* @requires     N/A
+*/
+.overlayContainer {
+  position: relative;
+  display: block;
+}
+.overlayContainer img {
+  display: block;
+}
+
+.overlayDark, .overlayBanner {
+  position: absolute;
+}
+
+.overlayDark {
+  bottom: 0;
+  background-color: #222222;
+  background-color: rgba(34, 34, 34, 0.7);
+  *background-color: #222222;
+  color: white;
+}
+
+.overlayBanner {
+  background-color: #5eab1f;
+  background-color: rgba(94, 171, 31, 0.7);
+  *background-color: #5eab1f;
+  color: white;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+/* =====================================================================================
+   Badges
+   ===================================================================================== */
+.badgeStandard, .badgeSecondary, .badgePrimary {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 0.35714em 0.42857em 0.21429em;
+  display: inline-block;
+  color: white;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.badgeStandard {
+  background-color: #999999;
+}
+
+.badgeSecondary {
+  background-color: #5eab1f;
+}
+
+.badgePrimary {
+  background-color: #ff5c00;
+}
+
+/* ==========================================================================
+   Button
+   ========================================================================== */
+/*
+---
+title: Buttons
+type: component
+category: Base CSS
+author: Derek Reynolds <dreynolds@trulia.com>
+tested: 
+  chrome: pass
+  firefox: pass
+  safari: pass
+  ie9: pass
+  ie8: pass
+  ie7: pass
+---
+
+Button styles can be applied to any element. Typically you'll want to
+use either a `<button>` or an `<a>` element:
+
+```html_example
+<button class="btn btnDefault">Click</button>
+<a class="btn btnDefault" href="trulia.com">Trulia!</a>
+```
+If your button is actually a link to another page, please use the
+`<a>` element, while if your button performs an action, such as submitting
+a form or triggering some javascript event, then use a `<button>` element.
+
+##Button Sizes
+There are three 3 sizes for buttons: Large, medium (default)
+and small. Simply apply the size modifier class for the desired size.
+There is also an additional modifier that will make the button take the
+full width of the container. It may be used with the any of the button
+size and style modifiers.
+
+Button                                                            | Modifier Class             
+----------------------------------------------------------------- | ----------------- 
+<button class="btn btnDefault btnLrg">Large</button>              | `btn btnDefault btnLrg` 
+<button class="btn btnDefault">Default</button>                   | `btn btnDefault` 
+<button class="btn btnDefault btnSml">Small</button>              | `btn btnDefault btnSml` 
+<button class="btn btnDefault btnFullWidth">Full width</button>   | `btn btnDefault btnFullWidth` 
+
+
+*/
+/*
+---
+type: skin
+title: Button Styles
+---
+
+Button                                            | Class             | Description
+------------------------------------------------- | ----------------- | -----------
+<button class="btn btnDefault">Default</button>   | `btn btnDefault`  | This is what buttons look like, this is the go to button style.
+<button class="btn btnPrimary">Primary</button>   | `btn btnPrimary`  | Use this button as the primary call to action
+<button class="btn btnDanger">Delete</button>     | `btn btnDanger`   | This button is for delete actions, these actions should also have a confirmation dialog
+<button class="btn btnDisabled">Disabled</button> | `btn btnDisabled` | I'm afraid I can't let you do that, yet.
+<button class="btn btnLink">Link</button>         | `btn btnLink`     | Design Team: Should secondary actions use this or btnDefault?
+
+
+>**Where are the green buttons?** The button police have decided that
+the green buttons compete with the orange buttons and are rarely used
+inline. Additionally, many of our branded elements are green. Please
+reserve the use of green buttons to global and sticky bar navigation.
+
+*/
+button {
+  background: none;
+  border: 0;
+}
+
+/* Base button */
+.btn {
+  padding: .5em 1em;
+  margin: 0;
+  display: inline-block;
+  font-weight: normal;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  text-align: center;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+/* Button sizes */
+.btnSml {
+  font-size: 10px;
+  font-size: 0.625rem;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.btnLrg {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.6;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.btnFullWidth {
+  width: 100%;
+}
+
+.btnDefault,
+a.btnDefault {
+  border: 1px #d7d7d7 solid;
+  background: white;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fcfcfc), color-stop(100%, #f6f6f6));
+  background: -webkit-linear-gradient(#fcfcfc, #f6f6f6);
+  background: -moz-linear-gradient(#fcfcfc, #f6f6f6);
+  background: -o-linear-gradient(#fcfcfc, #f6f6f6);
+  background: linear-gradient(#fcfcfc, #f6f6f6);
+  color: #222222;
+  text-shadow: 0 1px 0 white;
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+.btnDefault:hover,
+.btnDefault:focus {
+  background: white;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f6f6f6), color-stop(100%, #fcfcfc));
+  background: -webkit-linear-gradient(#f6f6f6, #fcfcfc);
+  background: -moz-linear-gradient(#f6f6f6, #fcfcfc);
+  background: -o-linear-gradient(#f6f6f6, #fcfcfc);
+  background: linear-gradient(#f6f6f6, #fcfcfc);
+}
+
+.btnDefault:active {
+  position: relative;
+  top: 1px;
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btnPrimary,
+a.btnPrimary, .btnDanger,
+a.btnDanger {
+  color: white;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.btnPrimary,
+a.btnPrimary {
+  border: 1px #c24600 solid;
+  background: #ff6c1a;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fd7c00), color-stop(100%, #ff5c00));
+  background: -webkit-linear-gradient(#fd7c00, #ff5c00);
+  background: -moz-linear-gradient(#fd7c00, #ff5c00);
+  background: -o-linear-gradient(#fd7c00, #ff5c00);
+  background: linear-gradient(#fd7c00, #ff5c00);
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.15);
+}
+
+.btnPrimary:hover,
+.btnPrimary:focus {
+  background: #ff6c1a;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff5c00), color-stop(100%, #fd7c00));
+  background: -webkit-linear-gradient(#ff5c00, #fd7c00);
+  background: -moz-linear-gradient(#ff5c00, #fd7c00);
+  background: -o-linear-gradient(#ff5c00, #fd7c00);
+  background: linear-gradient(#ff5c00, #fd7c00);
+}
+
+.btnPrimary:active {
+  position: relative;
+  top: 1px;
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btnDanger,
+a.btnDanger {
+  border: 1px #94180f solid;
+  background: #e32516;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cc3300), color-stop(100%, #cc2114));
+  background: -webkit-linear-gradient(#cc3300, #cc2114);
+  background: -moz-linear-gradient(#cc3300, #cc2114);
+  background: -o-linear-gradient(#cc3300, #cc2114);
+  background: linear-gradient(#cc3300, #cc2114);
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.15);
+}
+
+.btnDanger:hover,
+.btnDanger:focus {
+  background: #e32516;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cc2114), color-stop(100%, #cc3300));
+  background: -webkit-linear-gradient(#cc2114, #cc3300);
+  background: -moz-linear-gradient(#cc2114, #cc3300);
+  background: -o-linear-gradient(#cc2114, #cc3300);
+  background: linear-gradient(#cc2114, #cc3300);
+}
+
+.btnDanger:active {
+  position: relative;
+  top: 1px;
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn[disabled],
+.btn[disabled]:hover,
+.btn[disabled]:focus
+.btn[disabled]:active,
+.btnDisabled,
+a.btnDisabled,
+.btnDisabled:hover,
+.btnDisabled:focus,
+.btnDisabled:active {
+  border: 0px;
+  background: #d6d6d6;
+  color: #707070;
+  text-shadow: 0 1px 0 white;
+  cursor: default;
+}
+
+.btn[disabled]:active,
+.btnDisabled:active {
+  position: static;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.btnLink {
+  color: #1885f0;
+  border: 1px solid transparent;
+}
+.btnLink:hover, .btnLink:focus {
+  color: #5eab1f;
+}
+
+/* ==========================================================================
+   Button Group
+   ========================================================================== */
+.btnGroup {
+  font-size: 0;
+}
+.btnGroup .btn {
+  margin-left: -1px;
+  border-radius: 0px;
+}
+.btnGroup .btn:first-child {
+  margin-left: 0px;
+  border-radius: 6px 0 0 6px;
+}
+.btnGroup .btn:last-child {
+  border-radius: 0 6px 6px 0;
+}
+
+/* ==========================================================================
+   Divider
+   ========================================================================== */
+hr {
+  border: none;
+  border-bottom: 1px solid #cccccc;
+}
+
+.dividerLowlight {
+  border-bottom-color: #e9e9e9;
+}
+
+/* ==========================================================================
+   Dropdown
+   ========================================================================== */
+/**
+* @desc         Skin of Dropdown
+* @name         Dropdown Basic
+* @author       Fiona Chan
+* @tested       Firefox, Chrome, Safari, IE7-9
+* @requires     _variables.scss, _dropdown.scss
+*/
+/**
+* @desc Skin of Dropdown
+* @name Dropdown Basic
+* @author Fiona Chan
+* @tested
+* @requires _variables.scss, _dropdown.scss
+*/
+.dropdown {
+  position: relative;
+}
+
+.dropdownTrigger {
+  cursor: pointer;
+}
+
+.dropdownBox {
+  margin: 0;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+  position: absolute;
+  display: none;
+  white-space: nowrap;
+}
+.active .dropdownBox {
+  display: block;
+}
+.no-js .dropdownBox {
+  display: block;
+  position: static;
+}
+.dropdownBox ul {
+  margin: 0;
+}
+.dropdownBox a {
+  display: block;
+}
+.dropdownRight .dropdownBox {
+  left: auto;
+  right: 0;
+}
+
+.dropdownBasic .dropdownBox {
+  padding: .727em;
+  /* 8px */
+  font-size: 11px;
+  font-size: 0.6875rem;
+  background: white;
+  border: 1px solid #5eab1f;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.dropdownBasic .dropdownBox a {
+  padding: .273em .455em;
+  /* 3px 5px */
+  color: #1885f0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+.dropdownBasic .dropdownBox a:hover,
+.dropdownBasic .dropdownBox a:focus {
+  background: #5eab1f;
+  color: white;
+  text-shadow: 1px 1px 0 #438415;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Table
+   ========================================================================== */
+/**
+  * @desc         Base table mixin that provides helper classes for aligning table content
+  * @name         Trulia Table Mixin
+  * @author       aflanagan
+  * @tested       chrome, firefox
+  * @requires     ---
+  */
+/* ==========================================================================
+   Table Spacing helpers
+   ========================================================================== */
+/**
+ * Table Spacing helpers 
+ * Should be used to modify the default spacing of table cells. 
+ * <type><location><size>
+ *
+ * t            table
+ * a,h,v        all,horizontal,vertical
+ * s,m,l,n      small(5px),medium(10px),large(21px),none(0px)
+ */
+/**
+  * @desc         A mixin and class to build a simple table with row dividers
+  * @name         Simple Table
+  * @author       aflanagan
+  * @tested       chrome, firefox
+  * @requires     ----
+*/
+.table {
+  width: 100%;
+}
+.table thead th {
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #222222;
+}
+.table th,
+.table td {
+  padding: 8px;
+}
+
+/* horizontal alignment */
+/* vertical alignment */
+.simpleTable tr {
+  border-bottom: 1px solid #cccccc;
+}
+
+/* build spacing exceptions */
+.tan td,
+.tan th {
+  padding: 0;
+}
+
+.tas td,
+.tas th {
+  padding: 5px;
+}
+
+.tam td,
+.tam th {
+  padding: 10px;
+}
+
+.tal td,
+.tal th {
+  padding: 21px;
+}
+
+.tvn td,
+.tvn th {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.tvs td,
+.tvs th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.tvm td,
+.tvm th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tvl td,
+.tvl th {
+  padding-top: 21px;
+  padding-bottom: 21px;
+}
+
+.thn td,
+.thn th {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ths td,
+.ths th {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.thm td,
+.thm th {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.thl td,
+.thl th {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+
+/* ==========================================================================
+  Alerts and Messages
+  =========================================================================== */
+/**
+* @desc         Base alert styles.
+* @name         Alert
+* @author       aflanagan
+* @tested       
+* @requires     _variables.scss
+*/
+.alert {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+.alert .boxClose {
+  color: #fff;
+}
+
+/**
+    * @desc         Base alert styles.
+    * @name         Alert Skins
+    * @author       aflanagan
+    * @tested       chrome, firefox
+    * @requires     _alerts.scss
+    */
+.alertConfirm {
+  color: #fff;
+  background-color: #5eab1f;
+}
+
+/**
+* @desc         Base alert styles.
+* @name         Alert Skins
+* @author       aflanagan
+* @tested       chrome, firefox
+* @requires     _alerts.scss
+*/
+.alertInfo {
+  color: #fff;
+  background-color: #1885f0;
+}
+
+/**
+* @desc         Base alert styles.
+* @name         Alert Skins
+* @author       aflanagan
+* @tested       chrome, firefox
+* @requires     _alerts.scss
+*/
+.alertWarn {
+  color: #fff;
+  background-color: #cc2114;
+}
+
+/* ==========================================================================
+   Tooltip
+   ========================================================================== */
+/**
+  * @desc         Base tooltip mixin
+  * @name         Trulia Tooltip
+  * @author       aflanagan (heavily copied from dreynolds previous work)
+  * @tested       chrome, firefox
+  * @requires     tooltip.js (developed primarily by jcantrell)
+  * For IE7 and 8 the stem is generated in javascript because :before doesn't work under IE7 and we added a class IE8 for fixing css for IE.
+  * And it reduce the CSS code for IE8.
+  * The rotation of this element is made by using IE filter Matrix (see the comment below)
+  */
+.tooltip {
+  width: auto;
+  max-width: 300px;
+  margin: 4px;
+  padding: .5em 1em;
+  position: absolute;
+  display: none;
+  z-index: 100;
+  zoom: 1;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.tooltip:before, .tooltip .before {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  display: none;
+  content: " ";
+  overflow: hidden;
+  background-color: #fff;
+  color: #555;
+  -webkit-box-shadow: 1px 1px 0px 0px #aaaaaa;
+  -moz-box-shadow: 1px 1px 0px 0px #aaaaaa;
+  box-shadow: 1px 1px 0px 0px #aaaaaa;
+  z-index: -1;
+}
+
+.tooltipStemTop:before, .tooltipStemTop .before, .tooltipStemRight:before, .tooltipStemRight .before, .tooltipStemLeft:before, .tooltipStemLeft .before, .tooltipStemBottom:before, .tooltipStemBottom .before, .tooltipStemBottomRight:before, .tooltipStemBottomRight .before, .tooltipStemTopRight:before, .tooltipStemTopRight .before {
+  display: block;
+}
+
+.tooltip:before {
+  display: block;
+}
+
+.tooltip.ie8:before {
+  /* for IE8 we don't use the stem */
+  display: none;
+}
+
+.tooltip .before {
+  /*
+  * To make rotation like 45°, 135° in IE6/7, we use the transform matrix
+  * The tool that has been used can be found here : http://www.useragentman.com/IETransformsTranslator/
+  * This tool convert CSS3 transform into IE filter matrix
+  */
+  border: 1px solid transparent;
+  /* IE8+ - must be on one line, unfortunately */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865475, M12=-0.7071067811865477, M21=0.7071067811865477, M22=0.7071067811865475, SizingMethod='auto expand')";
+}
+
+.tooltipStemTop:before, .tooltipStemTop .before {
+  left: 13px;
+  top: -6px;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+.tooltipStemTop .ie {
+  top: -10px;
+}
+.tooltipStemTop .ie {
+  border-bottom-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+.tooltipStemRight:before, .tooltipStemRight .before {
+  right: -6px;
+  top: 11px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.tooltipStemRight .ie {
+  top: 8px;
+  right: -5px;
+}
+.tooltipStemRight .ie {
+  border-left-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+.tooltipStemLeft:before, .tooltipStemLeft .before {
+  left: -6px;
+  top: 10px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.tooltipStemLeft .ie {
+  left: -10px;
+  top: 8px;
+}
+.tooltipStemLeft .ie {
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+.tooltipStemBottom:before, .tooltipStemBottom .before {
+  left: 13px;
+  bottom: -6px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.tooltipStemBottom .ie {
+  bottom: -5px;
+}
+.tooltipStemBottom .ie {
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+}
+
+.tooltipStemBottomRight:before, .tooltipStemBottomRight .before {
+  right: 13px;
+  bottom: -6px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.tooltipStemBottomRight .ie {
+  bottom: -5px;
+}
+.tooltipStemBottomRight .ie {
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+}
+
+.tooltipStemTopRight:before, .tooltipStemTopRight .before {
+  right: 13px;
+  top: -6px;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+.tooltipStemTopRight .ie {
+  top: -10px;
+}
+.tooltipStemTopRight .ie {
+  border-bottom-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+.tooltipLight {
+  -webkit-box-shadow: 0px 0px 1px 1px #aaaaaa;
+  -moz-box-shadow: 0px 0px 1px 1px #aaaaaa;
+  box-shadow: 0px 0px 1px 1px #aaaaaa;
+  background-color: white;
+  border: 1px solid #cccccc \9;
+}
+.tooltipLight .ie {
+  border-color: #ccc;
+}
+
+.tooltipDark,
+.tooltipDark:before,
+.tooltipDark .before {
+  background-color: #222;
+  color: #fff;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.tooltipDark .ie {
+  border-color: #222;
+}
+
+/* ==========================================================================
+   Menu
+   ========================================================================== */
+/**
+* @desc         Base menu styles
+* @name         Menu
+* @author       Fiona
+* @tested       Safari, Chrome, Firefox, IE7-9
+* @requires     _variables.scss
+*/
+/**
+* @desc         Menu Main styles
+* @name         Menu Main
+* @author       Fiona
+* @tested       Safari, Chrome, Firefox, IE7-9
+* @requires     _variables.scss
+*/
+.menuList {
+  margin: 0;
+}
+.menuList > li {
+  margin: 0;
+  float: left;
+}
+.menuList a {
+  display: block;
+}
+
+.menuMain {
+  padding: 0 8px 0 4px;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  color: white;
+  border: 1px solid #50911a;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background: #5eab1f;
+}
+.menuMain .searchBar,
+.menuMain .menuList {
+  float: left;
+}
+.menuMain .searchBar {
+  padding-top: 2px;
+  margin-right: 5px;
+}
+.menuMain a {
+  color: white;
+}
+.menuMain a:hover, .menuMain a:focus {
+  color: white;
+  text-decoration: underline;
+}
+.menuMain .menuList > li {
+  margin-left: -1px;
+}
+.menuMain .menuList > li:first-child {
+  margin-left: 0;
+}
+.menuMain .menuList > li > a {
+  padding: 8px 10px;
+  line-height: 1.273;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #438415;
+  border: 1px solid #5eab1f;
+  border-width: 0 1px;
+}
+.menuMain .menuList > li > a:hover, .menuMain .menuList > li > a:focus, .menuMain .menuList > li > a.active {
+  text-decoration: none;
+  border-color: #65b821;
+  background: #50911a;
+}
+.menuMain .menuList > li > .hasIcon,
+.menuMain .menuList > li > .hasIcon:hover,
+.menuMain .menuList > li > .hasIcon:focus,
+.menuMain .menuList > li > .hasIcon.active {
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 0;
+  background: none;
+}
+.menuMain .menuList > li > .hasIcon .icon {
+  opacity: .5;
+}
+.menuMain .menuList > li > .hasIcon:hover .icon,
+.menuMain .menuList > li > .hasIcon:focus .icon,
+.menuMain .menuList > li > .hasIcon.active .icon {
+  opacity: 1;
+}
+.menuMain .menuList > li .icon-ipad {
+  margin-top: 5px;
+}
+.menuMain .menuList > li .icon-iphone {
+  margin-top: 7px;
+}
+.menuMain .menuList > li .icon-andriod {
+  margin-top: 6px;
+}
+
+.menuAside {
+  float: right;
+  margin: 5px 0 0;
+}
+.menuAside ul {
+  margin: 0;
+}
+.menuAside li {
+  padding-left: 5px;
+  margin-right: 0.2em;
+  display: inline;
+}
+.menuAside .menuDivider {
+  border-left: 1px dotted #fff;
+}
+
+.signUp a {
+  display: inline-block;
+  padding: 0 5px;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222222;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background: white;
+}
+.signUp a:hover, .signUp a:focus {
+  color: #222222;
+}
+
+/* =======================================================================
+  Search Bar
+  ========================================================================== */
+/**
+* @desc         Search bar styles
+* @name         Search Bar
+* @author       Fiona
+* @tested       Safari, Chrome, Firefox, IE7-9
+* @requires     _variables.scss
+*/
+.searchBar {
+  font-size: 11px;
+  line-height: 1;
+  margin: 0;
+}
+.searchBar .text input {
+  width: 340px;
+  *width: 240px;
+  margin: 0;
+  padding: 5px 100px 2px 7px;
+  background: #fff;
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  -ms-border-radius: 4px 0 0 4px;
+  -o-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px inset;
+}
+.searchBar button {
+  padding: 1px 3px 2px 5px;
+  height: 25px;
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  -ms-border-radius: 0 4px 4px 0;
+  -o-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+  text-align: center;
+}
+.searchBar .searchBarField,
+.searchBar button {
+  float: left;
+}
+.searchBar .dropdown {
+  padding-right: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.searchBar .dropdownTrigger {
+  display: block;
+  margin-bottom: -1px;
+  padding: 7px 0 6px;
+  color: #666666;
+}
+.searchBar .dropdownTrigger:hover, .searchBar .dropdownTrigger:active {
+  color: #666666;
+}
+.searchBar .dropdownTrigger .icon {
+  position: absolute;
+  top: 9px;
+  right: 0;
+}
+.searchBar .dropdownBox {
+  border-top: 0;
+  text-align: right;
+}
+
+.searchBarField {
+  position: relative;
+}
+
+/* =======================================================================
+  Rating
+  ========================================================================== */
+/**
+* @desc         Base of rating
+* @name         Rating
+* @author       fiona
+* @tested       chrome, firefox, IE7-9
+* @requires     -
+*/
+fieldset {
+  border: 0;
+}
+
+.rating label,
+.ratingGroup,
+.ratingValue {
+  vertical-align: middle;
+}
+
+.ratingGroup {
+  margin: 0;
+}
+.ratingGroup li {
+  float: left;
+}
+.ratingGroup label {
+  display: block;
+  cursor: pointer;
+}
+
+.ratingValue {
+  margin-left: 5px;
+}
+
+/**
+* @desc         Star rating
+* @name         Rating Star
+* @author       fiona
+* @tested       chrome, firefox
+* @requires     -
+*/
+.ratingStar li {
+  margin-left: 2px;
+}
+.ratingStar li:first-child {
+  margin-left: 0;
+}
+.ratingStar .ratingGroup label {
+  display: block;
+}
+
+/**
+* @desc         Bar rating
+* @name         Rating Bar
+* @author       fiona
+* @tested       chrome, firefox, IE7-9
+* @requires     -
+*/
+.ratingBar li {
+  margin: 3px 2px;
+}
+.ratingBar .ratingGroup {
+  border: 1px solid #ccc;
+}
+.ratingBar .ratingGroup li:first-child label {
+  margin-left: 0;
+}
+.ratingBar .ratingGroup label {
+  width: 15px;
+  height: 10px;
+  background: #eeeeee;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #dddddd));
+  background: -webkit-linear-gradient(#eeeeee, #dddddd);
+  background: -moz-linear-gradient(#eeeeee, #dddddd);
+  background: -o-linear-gradient(#eeeeee, #dddddd);
+  background: linear-gradient(#eeeeee, #dddddd);
+}
+.ratingBar .ratingGroup .ratingOn label {
+  background: #cef646;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cef646), color-stop(100%, #b7d43c));
+  background: -webkit-linear-gradient(#cef646, #b7d43c);
+  background: -moz-linear-gradient(#cef646, #b7d43c);
+  background: -o-linear-gradient(#cef646, #b7d43c);
+  background: linear-gradient(#cef646, #b7d43c);
+}
+
+/* =======================================================================
+  Carousel
+  ========================================================================== */
+/**
+* @desc         Base carousel styling
+* @name         Carousel
+* @author       Fiona Chan
+* @tested       Safair, Firefox, Chrome, IE7-9
+* @requires     _variables.scss
+*/
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carouselStrip {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+.carouselStrip li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-indent: 0px;
+}
+
+.carouselPagination li {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  border-radius: 13px;
+  background-color: #bbbbbb;
+  cursor: pointer;
+}
+.carouselPagination li.carouselCurrent {
+  background-color: #5eab1f;
+}
+
+.carouselMulti {
+  padding: 0 40px;
+}
+.carouselMulti > div > button {
+  margin-top: -30px;
+  padding: 0;
+  height: 61px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  font-size: 36px;
+  font-size: 2.25rem;
+}
+.carouselMulti > div > button .icon {
+  display: block;
+  opacity: .5;
+}
+.carouselMulti > div > button:hover .icon, .carouselMulti > div > button:focus .icon {
+  opacity: 1;
+}
+.carouselMulti .carouselStrip {
+  margin: 0;
+}
+.carouselMulti li {
+  margin: 1px 3px 0;
+}
+.carouselMulti .carouselBtnPrev {
+  left: 0;
+}
+.carouselMulti .carouselBtnNext {
+  right: 0;
+}
+
+.carouselSingle .carouselStrip {
+  margin-bottom: 3px;
+}
+
+.carouselFade .carouselStrip li {
+  position: absolute;
+  left: 0px;
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+.carouselFade .carouselStrip li.carouselCurrent {
+  opacity: 1;
+  -webkit-transition-delay: 0.5s;
+  -moz-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+/* =======================================================================
+  Icon
+  ========================================================================== */
+.icon-sprite, .icon-arrowDownDefault, .icon-arrowDownTiny, .icon-arrowRight, .icon-arrowUpDefault, .icon-carouselBtnNext, .icon-carouselBtnPrev, .icon-circlDivider3, .icon-circleDivider1, .icon-circleDivider2, .icon-dropdownArrow, .icon-dropdownPointer, .icon-flagSml, .icon-hideSml, .icon-icon-androidDefault, .icon-infoDefault, .icon-ipad, .icon-iphone, .icon-likeLrg, .icon-likeSml, .icon-magnify, .icon-map, .icon-mapGrey, .icon-messageBlueSml, .icon-messageWhite, .icon-mortgage, .icon-navList, .icon-navListHover, .icon-navListSelected, .icon-navMap, .icon-navMapHover, .icon-navPhoto, .icon-navPhotoHover, .icon-navPhotoSelected, .icon-photosWhite, .icon-rentalsSlsCta, .icon-saveSml, .icon-srpNavMapSelected, .icon-starOff, .ratingStar .ratingGroup label, .icon-starOn, .ratingStar .ratingGroup .ratingOn label, .icon-tableView, .icon-thumb, .icon-transitscoreDefault, .icon-walkscoreDefault {
+  background: url('../img/icon-s2c52db352b.png') no-repeat;
+}
+
+.icon-arrowDownDefault {
+  background-position: 0 -893px;
+  height: 17px;
+  width: 15px;
+}
+
+.icon-arrowDownTiny {
+  background-position: 0 -764px;
+  height: 13px;
+  width: 7px;
+}
+
+.icon-arrowRight {
+  background-position: 0 -720px;
+  height: 18px;
+  width: 16px;
+}
+
+.icon-arrowUpDefault {
+  background-position: 0 -910px;
+  height: 17px;
+  width: 15px;
+}
+
+.icon-carouselBtnNext {
+  background-position: 0 -79px;
+  height: 63px;
+  width: 22px;
+}
+
+.icon-carouselBtnPrev {
+  background-position: 0 -16px;
+  height: 63px;
+  width: 22px;
+}
+
+.icon-circlDivider3 {
+  background-position: 0 -527px;
+  height: 37px;
+  width: 13px;
+}
+
+.icon-circleDivider1 {
+  background-position: 0 -435px;
+  height: 37px;
+  width: 13px;
+}
+
+.icon-circleDivider2 {
+  background-position: 0 -398px;
+  height: 37px;
+  width: 13px;
+}
+
+.icon-dropdownArrow {
+  background-position: 0 -617px;
+  height: 11px;
+  width: 11px;
+}
+
+.icon-dropdownPointer {
+  background-position: 0 -608px;
+  height: 9px;
+  width: 14px;
+}
+
+.icon-flagSml {
+  background-position: 0 -835px;
+  height: 14px;
+  width: 12px;
+}
+
+.icon-hideSml {
+  background-position: 0 -628px;
+  height: 14px;
+  width: 12px;
+}
+
+.icon-icon-androidDefault {
+  background-position: 0 -584px;
+  height: 24px;
+  width: 18px;
+}
+
+.icon-infoDefault {
+  background-position: 0 -881px;
+  height: 12px;
+  width: 12px;
+}
+
+.icon-ipad {
+  background-position: 0 -642px;
+  height: 24px;
+  width: 16px;
+}
+
+.icon-iphone {
+  background-position: 0 -696px;
+  height: 24px;
+  width: 10px;
+}
+
+.icon-likeLrg {
+  background-position: 0 -860px;
+  height: 21px;
+  width: 14px;
+}
+
+.icon-likeSml {
+  background-position: 0 -384px;
+  height: 14px;
+  width: 14px;
+}
+
+.icon-magnify {
+  background-position: 0 -250px;
+  height: 19px;
+  width: 17px;
+}
+
+.icon-map {
+  background-position: 0 -364px;
+  height: 20px;
+  width: 22px;
+}
+
+.icon-mapGrey {
+  background-position: 0 -682px;
+  height: 14px;
+  width: 12px;
+}
+
+.icon-messageBlueSml {
+  background-position: 0 -849px;
+  height: 11px;
+  width: 14px;
+}
+
+.icon-messageWhite {
+  background-position: 0 -666px;
+  height: 16px;
+  width: 14px;
+}
+
+.icon-mortgage {
+  background-position: 0 -738px;
+  height: 26px;
+  width: 24px;
+}
+
+.icon-navList {
+  background-position: 0 -307px;
+  height: 20px;
+  width: 18px;
+}
+
+.icon-navListHover {
+  background-position: 0 -269px;
+  height: 20px;
+  width: 18px;
+}
+
+.icon-navListSelected {
+  background-position: 0 -344px;
+  height: 20px;
+  width: 18px;
+}
+
+.icon-navMap {
+  background-position: 0 -507px;
+  height: 20px;
+  width: 18px;
+}
+
+.icon-navMapHover {
+  background-position: 0 -487px;
+  height: 20px;
+  width: 18px;
+}
+
+.icon-navPhoto {
+  background-position: 0 -206px;
+  height: 20px;
+  width: 18px;
+}
+
+.icon-navPhotoHover {
+  background-position: 0 -142px;
+  height: 20px;
+  width: 18px;
+}
+
+.icon-navPhotoSelected {
+  background-position: 0 -186px;
+  height: 20px;
+  width: 18px;
+}
+
+.icon-photosWhite {
+  background-position: 0 -327px;
+  height: 17px;
+  width: 15px;
+}
+
+.icon-rentalsSlsCta {
+  background-position: 0 -789px;
+  height: 31px;
+  width: 69px;
+}
+
+.icon-saveSml {
+  background-position: 0 -472px;
+  height: 15px;
+  width: 13px;
+}
+
+.icon-srpNavMapSelected {
+  background-position: 0 -564px;
+  height: 20px;
+  width: 18px;
+}
+
+.icon-starOff, .ratingStar .ratingGroup label {
+  background-position: 0 -226px;
+  height: 24px;
+  width: 23px;
+}
+
+.icon-starOn, .ratingStar .ratingGroup .ratingOn label {
+  background-position: 0 -162px;
+  height: 24px;
+  width: 23px;
+}
+
+.icon-tableView {
+  background-position: 0 -777px;
+  height: 12px;
+  width: 13px;
+}
+
+.icon-thumb {
+  background-position: 0 -289px;
+  height: 18px;
+  width: 16px;
+}
+
+.icon-transitscoreDefault {
+  background-position: 0 -820px;
+  height: 15px;
+  width: 13px;
+}
+
+.icon-walkscoreDefault {
+  background-position: 0 0;
+  height: 16px;
+  width: 78px;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.iconExt {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+.iconCompact {
+  margin-right: 0;
+}
+
+/* =======================================================================
+  Hover
+  ========================================================================== */
+/**
+* @desc         Hover utility classes
+* @name         Hover
+* @author       JD
+* @tested       Chrome, Firefox, IE9, IE8, IE7(has issues when mousing
+*               between child elements)
+*/
+.hover .hoverDisplay {
+  visibility: hidden;
+}
+
+.hover:hover .hoverDisplay {
+  visibility: visible;
+}
+
+/* =======================================================================
+  Template
+  ========================================================================== */
+/**
+* @desc         Template specific styling.
+* @name         Template
+* @author       Fiona
+* @tested       
+* @requires     _variables.scss
+*/
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+body {
+  background: white;
+}
+
+/* Fixed width container */
+.content > section, .container {
+  width: 1128px;
+  margin: 0 auto;
+}
+
+/* wrapper for containers */
+.content > .pane {
+  width: auto;
+  position: relative;
+}
+.content > .pane .aside {
+  position: relative;
+}
+.content > .pane .aside :before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  right: 310px;
+  width: 0;
+  height: auto;
+  border-left: 1px solid #e6e6e6;
+}
+
+.main[role="main"] {
+  position: relative;
+  top: -10px;
+}
+
+.content > section, .content .container {
+  margin-top: 0;
+}
+
+/* ==========================================================================
+   Skip link
+   ========================================================================== */
+.skipLink:focus {
+  width: 100%;
+  padding: 5px 0;
+  display: block;
+  position: absolute;
+  z-index: 100;
+  text-indent: 5px;
+  color: #fff;
+  background: #5eab1f;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.header {
+  padding-bottom: 15px;
+  *position: relative;
+  *z-index: 100;
+  background: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.headerSubSection {
+  margin: 1px 0;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  text-align: right;
+  line-height: 1;
+}
+.headerSubSection a {
+  color: #222;
+}
+.headerSubSection .highlight {
+  display: inline-block;
+  padding: 2px 10px;
+  color: #fff;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  background: #888;
+}
+.headerSubSection .listInline {
+  margin: 0;
+}
+
+.headerMainSection {
+  position: relative;
+}
+.headerMainSection .logo {
+  position: absolute;
+  left: 0;
+  top: -1px;
+}
+
+.menuWrap {
+  margin-left: 97px;
+}
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+.content {
+  padding-top: 5px;
+}
+
+.content > section {
+  margin-top: 5px;
+}
+
+.sideBar {
+  width: 185px;
+  margin-right: 20px;
+  float: left;
+}
+
+.main {
+  float: none;
+  /* IE 7 - new formatting context */
+  *display: block;
+  *width: auto;
+  *zoom: 1;
+}
+
+.aside {
+  width: 300px;
+  margin-left: 20px;
+  float: right;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  clear: both;
+  margin-top: 40px;
+  font-size: 12px;
+  font-size: 0.75rem;
+}
+
+.footerBox {
+  border-top: 5px solid #5eab1f;
+}
+.footerBox .boxBody {
+  margin: 10px 0;
+}
+
+.footerGroup a {
+  color: #222222;
+}
+.footerGroup a:hover, .footerGroup a:focus {
+  color: #5eab1f;
+  text-decoration: underline;
+}
+
+.footerCol {
+  width: 125px;
+}
+
+.footerGroupHeading {
+  /*display: inline-block;
+  *zoom: 1;
+  *display: inline;
+
+  vertical-align: middle;*/
+  float: left;
+}
+
+.footerGroupHeading {
+  width: 120px;
+  margin: 0;
+  clear: right;
+  font-weight: bold;
+}
+
+.footerGroupList {
+  margin: 0;
+}
+.footerGroupList > li {
+  margin: 0;
+}
+
+.footerDisclaimer {
+  float: left;
+}
+
+.footerNoteAside {
+  float: right;
+}
