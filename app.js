@@ -22,9 +22,10 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 });
 
-server.listen(3000);
-// server.listen(80, '0.0.0.0');
-
+var port = process.env.PORT || 5000;
+server.listen(port, function() {
+  console.log("Listening on " + port);
+});
 
 
 
