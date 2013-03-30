@@ -3,9 +3,12 @@
   float: right;
 }
 
-#map { 
-	height: 500px; 
-	width: 1400px;
+#map {
+position: absolute;
+top: 93px;
+bottom: 0;
+left: 0;
+right: 0;
 }
 
 

@@ -57,7 +57,47 @@
     
     L.tileLayer('http://{s}.tile.cloudmade.com/83d9fa1fca774c898ac46594d1e6a72b/997/256/{z}/{x}/{y}.png', {
       maxZoom: 18
-    }).addTo(map);     
+    }).addTo(map);    
+
+    // Information box
+    var info = L.control();
+
+    info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+        this.update();
+        return this._div;
+    };
+
+    // method that we will use to update the control based on feature properties passed
+    info.update = function (props) {
+
+        this._div.innerHTML = '<h4>PDP Clicks</h4>' +  (props ?
+            '<b>' + props.NAME_1 + '</b><br />' + getValue(props.WOE_HOOD) + ' clicks / day'
+            : 'Hover over a neighborhood');
+    };
+    
+    info.addTo(map);
+
+    // Legend box
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+            labels = [];
+
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+
+        return div;
+    };
+
+    legend.addTo(map);
 
 
   new Dragdealer('simple-slider',
@@ -125,45 +165,9 @@ socket.emit("lookup", {date: "27032013"});
     map.fitBounds(e.target.getBounds());
   }
 
-  // Legend box
-  var legend = L.control({position: 'bottomright'});
 
-  legend.onAdd = function (map) {
-
-      var div = L.DomUtil.create('div', 'info legend'),
-          grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-          labels = [];
-
-      // loop through our density intervals and generate a label with a colored square for each interval
-      for (var i = 0; i < grades.length; i++) {
-          div.innerHTML +=
-              '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-              grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-      }
-
-      return div;
-  };
-
-  legend.addTo(map);
   
-  // Information box
-  var info = L.control();
 
-  info.onAdd = function (map) {
-      this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-      this.update();
-      return this._div;
-  };
-
-  // method that we will use to update the control based on feature properties passed
-  info.update = function (props) {
-
-      this._div.innerHTML = '<h4>PDP Clicks</h4>' +  (props ?
-          '<b>' + props.NAME_1 + '</b><br />' + getValue(props.WOE_HOOD) + ' clicks / day'
-          : 'Hover over a neighborhood');
-  };
-  
-  info.addTo(map);
   });
 
 
