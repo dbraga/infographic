@@ -21,7 +21,7 @@
         "socket.io": ">=0.9.13",
         "socket.io-client": "0.9.11",
         "d3":"3.0.3",
-        "node_redis":"0.8.2"
+        "node_redis":"https://github.com/mranney/node_redis/tarball/master"
     },
     "license": "MIT"
 }
