@@ -22,7 +22,7 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 });
 
-server.listen(8080);
+server.listen(3000);
 // server.listen(80, '0.0.0.0');
 
 
