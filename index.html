@@ -42,18 +42,20 @@
   // var URI = "http://localhost:3000";
   var socket = io.connect();
   var clickData = "";
-
+  var drag;
   
-
-
-
+  var step ;
+  var steps = 3;
+  var timer ;
+  var stopSlide = false;
 
 
 
 
   jQuery(document).ready(function() {
 
-     var map = L.map('map').setView([37.761351,-122.441082], 13);
+    var geojson = null;
+    var map = L.map('map').setView([37.761351,-122.441082], 13);
     
     L.tileLayer('http://{s}.tile.cloudmade.com/83d9fa1fca774c898ac46594d1e6a72b/997/256/{z}/{x}/{y}.png', {
       maxZoom: 18
@@ -72,7 +74,7 @@
     info.update = function (props) {
 
         this._div.innerHTML = '<h4>PDP Clicks</h4>' +  (props ?
-            '<b>' + props.NAME_1 + '</b><br />' + getValue(props.WOE_HOOD) + ' clicks / day'
+            '<b>' + props.NAME_1 + '</b><br />' + getValue(props.WOE_HOOD) + ' clicks / day' + '</b><br />'+ ' date: '
             : 'Hover over a neighborhood');
     };
     
@@ -100,24 +102,26 @@
     legend.addTo(map);
 
 
-  new Dragdealer('simple-slider',
+  drag = new Dragdealer('simple-slider',
   {
     horizontal: true,
     vertical: false,
-    steps: 2,
+    steps: steps,
     snap: true,
     animationCallback: function (x,y) {
 
 
 
 // Client looks for data on date GGMMAA
-  
-
+  step = x+1;
+    console.log(step);
   if (x==0){
-socket.emit("lookup", {date: "27032013"});
-  }else{
-    map.removeLayer(geojson);
-    socket.emit("lookup", {date: "28032013"});
+    socket.emit("lookup", {date: "27032013"});
+    } else if (x==1){
+      socket.emit("lookup", {date: "28032013"});
+    }
+    else{
+      socket.emit("lookup", {date: "30032013"});
   }
   // console.log("emitted lookup");
  
@@ -125,7 +129,7 @@ socket.emit("lookup", {date: "27032013"});
     // console.log("got response");
     clickData = data;
     // Load the map
- 
+  if (geojson!=null) map.removeLayer(geojson);
 
     function onEachFeature(feature, layer) {
     layer.on({
@@ -144,10 +148,11 @@ socket.emit("lookup", {date: "27032013"});
       var layer = e.target;
 
       layer.setStyle({
-          weight: 5,
+          weight: 3,
           color: '#5eab1f',
+          fillColor: "#5eab1f",
           dashArray: '',
-          fillOpacity: 0.2
+          fillOpacity: 0.4
       });
 
       if (!L.Browser.ie && !L.Browser.opera) {
@@ -178,15 +183,45 @@ socket.emit("lookup", {date: "27032013"});
 
   });  
 
+function stop(){
+  stopSlide = true;
+}
+
+function slide() {
+    // var num = 0, style = document.getElementById('container').style;
+   
+    timer = window.setInterval(function () {
+      // if (step+1>steps){
+        // step=0;
+      // }
+      console.log("currentstep : "+ (step));
+      if (step == steps){
+        step = 1;
+        console.log("setting step to "+step);
+      } else{
+        step = step + 1;
+      }
+      
+      drag.setStep(step);
+    
+       if(stopSlide){
+       window.clearInterval(timer);
+       timer = null
+    }
+
+    }, 1000); // repeat forever, polling every 3 seconds      
 
 
+}
 
 
   </script>
 
   <div id="map"></div>
   <div id="simple-slider" class="dragdealer">
-    <div class="red-bar handle">Change Date</div>
+    <button onclick="slide()">Play</button>
+    <button onclick="stop()">Disable</button>
+    <div class="red-bar handle" style="display:none"></div>
   </div>
 
 

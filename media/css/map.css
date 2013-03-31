@@ -1,7 +1,12 @@
 #simple-slider{
-  width: 200px;
+  width: 125px;
   float: right;
 }
+#simple-slider button {
+  padding-left: 10px;
+  /*float: right;*/
+}
+
 
 #map {
 position: absolute;
