@@ -9,6 +9,7 @@
  <header class="header pbn" role="banner">
       <div class="backgroundHighlight typeReversed1">
         <div class="container">
+          <h1 id="date"></h1>
           <h1 class="h2 mvs">Which neighborhoods are more viewed?</h1>
         </div>
       </div>
@@ -80,6 +81,8 @@
     
     info.addTo(map);
 
+
+
     // Legend box
     var legend = L.control({position: 'bottomright'});
 
@@ -116,11 +119,14 @@
   step = x+1;
     console.log(step);
   if (x==0){
+    $("#date").text('27 March 2013');
     socket.emit("lookup", {date: "27032013"});
     } else if (x==1){
+      $("#date").text('28 March 2013');
       socket.emit("lookup", {date: "28032013"});
     }
     else{
+    $("#date").text('30 March 2013');
       socket.emit("lookup", {date: "30032013"});
   }
   // console.log("emitted lookup");
