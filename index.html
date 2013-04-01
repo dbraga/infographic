@@ -57,12 +57,12 @@
     var geojson = null;
     var map = L.map('map').setView([37.761351,-122.441082], 13);
     
-    L.tileLayer('http://{s}.tile.cloudmade.com/83d9fa1fca774c898ac46594d1e6a72b/997/256/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tile.cloudmade.com/83d9fa1fca774c898ac46594d1e6a72b/91229/256/{z}/{x}/{y}.png', {
       maxZoom: 18
     }).addTo(map);    
 
     // Information box
-    var info = L.control();
+    var info = L.control({position: 'topright'});
 
     info.onAdd = function (map) {
         this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
@@ -209,7 +209,7 @@ function slide() {
        timer = null
     }
 
-    }, 1000); // repeat forever, polling every 3 seconds      
+    }, 3000); // repeat forever, polling every 3 seconds      
 
 
 }

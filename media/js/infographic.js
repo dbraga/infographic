@@ -38,15 +38,36 @@ function style(feature) {
     };
 }
 
+function rgb2hex(rgb) {
+ rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+ function hex(x) {
+  return ("0" + parseInt(x).toString(16)).slice(-2);
+ }
+ return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+}
+
 function getColor(d) {
     return d > 1000 ? '#800026' :
-           d > 500  ? '#BD0026' :
-           d > 200  ? '#E31A1C' :
-           d > 100  ? '#FC4E2A' :
-           d > 50   ? '#FD8D3C' :
-           d > 20   ? '#FEB24C' :
-           d > 10   ? '#FED976' :
-                      '#FFEDA0';
+
+           
+           d > 500  ? '#CC0000' :
+           d > 200  ? '#FC4E2A' :
+
+
+           // d > 200  ? '#E31A1C' :
+           d > 100  ? '#FEB24C' :
+
+           d > 50   ? '#BF920D' :
+
+           // d > 50   ? '#FD8D3C' :
+           d > 20   ? '#228B22' :
+           
+           // d > 10   ? '#FED976' :
+           d > 10   ? '#2E8B57' :
+                      '#66B319';
+
+                        // '#98FB98';
+
 }
 
 

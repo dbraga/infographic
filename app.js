@@ -38,15 +38,16 @@ app.get('/', function (req, res) {
 
 var client;
 
-if (process.env.REDISTOGO_URL) {
-  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
-  client = require("redis").createClient(rtg.port, rtg.hostname);
+// if (process.env.REDISTOGO_URL) {
+//   var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+//   client = require("redis").createClient(rtg.port, rtg.hostname);
 
-  client.auth(rtg.auth.split(":")[1]); 
-} else {
- client = require("redis").createClient();
-}
+//   client.auth(rtg.auth.split(":")[1]); 
+// } else {
+//  client = require("redis").createClient();
+// }
 
+client = require('redis').createClient(6379,"devindex4.sv2.trulia.com");
 client.on("error", function (err) {
     console.log("error event - " + client.host + ":" + client.port + " - " + err);
 });
@@ -103,7 +104,7 @@ io.sockets.on('connection', function (socket) {
     // console.log(array[0]);
     socket.emit("lookup-response",array)
     // JSON.parse(string);
-}, 500);
+}, 100);
         
         // 
     });
